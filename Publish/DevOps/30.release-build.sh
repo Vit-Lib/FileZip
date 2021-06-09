@@ -1,6 +1,6 @@
 set -e
 
-# cd /root/docker/jenkins/workspace/filezip/svn/Publish/DevOps/filezip; bash 30.release-build.sh
+# cd /root/docker/jenkins/workspace/filezip/svn/Publish/DevOps; bash 30.release-build.sh
 
 
 
@@ -8,7 +8,7 @@ set -e
 curWorkDir=$PWD
 curPath=$(dirname $0)
 
-cd $curPath/../../..
+cd $curPath/../..
 codePath=$PWD
 # codePath=/root/docker/jenkins/workspace/filezip/svn
 
@@ -17,12 +17,11 @@ codePath=$PWD
 export name=filezip
 
 
-echo "(x.2)get version"
-#version=1.1.0.53
-cd $codePath
-version=`grep '<Version>' FileZip/FileZip.csproj | grep -o '[0-9\.]\+'`
-
+echo "(x.2)get version" 
+version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -o '[0-9][0-9\.]\+'`
 # echo $version
+
+
 
 
 #----------------------------------------------

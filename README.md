@@ -26,6 +26,7 @@ docker run --rm -it -v /root/docker/file:/root/file serset/filezip  dotnet FileZ
 ```
 
 ## 3. 命令说明：
+``` txt
 ---------------
 help
 帮助文档：
@@ -59,3 +60,4 @@ zip
 -f[--file] 若指定，则输出每一个文件信息
 示例： zip -i "/data/files" -o "/data/files.zip" -p 0.1 -f
 ---------------
+``` 

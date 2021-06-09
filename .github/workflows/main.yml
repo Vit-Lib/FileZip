@@ -33,7 +33,6 @@ jobs:
            export DOCKER_USERNAME="${{ secrets.DOCKER_USERNAME  }}"
            export DOCKER_PASSWORD="${{ secrets.DOCKER_PASSWORD }}"
            export GIT_SSH_SECRET="${{ secrets.GIT_SSH_SECRET }}"
-           cd ./Publish/DevOps/filezip
-           bash 20.docker-build.sh
-           bash 30.release-build.sh
+           cd ./Publish/DevOps
+           bash startup.sh
            echo build succeed!

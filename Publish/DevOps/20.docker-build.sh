@@ -1,13 +1,13 @@
 set -e
 
-# cd /root/docker/jenkins/workspace/filezip/svn/Publish/DevOps/filezip; bash 20.docker-build.sh
+# cd /root/docker/jenkins/workspace/filezip/svn/Publish/DevOps; bash 20.docker-build.sh
 
 
 #(x.1)当前路径 
 curWorkDir=$PWD
 curPath=$(dirname $0)
 
-cd $curPath/../../..
+cd $curPath/../..
 codePath=$PWD
 # codePath=/root/docker/jenkins/workspace/filezip/svn
 
@@ -21,20 +21,15 @@ export projectPath='FileZip'
 
 
 
-echo "(x.2)get version"
-#version=1.1.0.53
-cd $codePath
-version=`grep '<Version>' FileZip/FileZip.csproj | grep -o '[0-9\.]\+'`
-
+echo "(x.2)get version" 
+version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -o '[0-9][0-9\.]\+'`
 # echo $version
 
 
 
 
-
-echo "(x.3)发布dotnet项目"
 tag=$version
-echo 发布项目 $name:$tag
+echo "(x.3)发布项目 $name:$tag"
 
 docker run -i --rm \
 --env LANG=C.UTF-8 \
