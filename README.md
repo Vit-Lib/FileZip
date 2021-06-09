@@ -1,5 +1,5 @@
 # FileZip
-> FileZip为net core2.1开发的文件加解压工具，包括 文件合并、加压（zip） 和 解压（unzip）文件
+> FileZip为net core2.1开发的文件加解压工具，包括 文件合并、文件压缩（zip） 和 文件解压（unzip）    
 > 运行环境 dotnet core 2.1
 
 ## 1. demo
@@ -14,7 +14,7 @@ dotnet FileZip.dll marge -i "E:\t 2" -o "E:\t 2.7z"
 dotnet FileZip.dll unzip -i "E:\t\m.7z" -o "E:\t\t2"
 ```
 
-## 2. docker运行
+## 2. run in docker
 ``` bash
 # 查看帮助
 docker run --rm -it serset/filezip
@@ -25,7 +25,7 @@ docker run --rm -it -v /root/docker/file:/root/file serset/filezip  dotnet FileZ
 
 ```
 
-## 3. 命令说明：
+## 3. 命令说明
 ``` txt
 ---------------
 help
