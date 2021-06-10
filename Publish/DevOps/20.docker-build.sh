@@ -70,7 +70,7 @@ docker buildx ls
 
 docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-docker buildx build $codePath/Publish/06.Docker/制作镜像/$name -t $DOCKER_USERNAME/$name:$tag -t $DOCKER_USERNAME/$name --platform=linux/amd64,linux/arm64,linux/arm/v7 --push
+docker buildx build $codePath/Publish/06.Docker/制作镜像/$name -t $DOCKER_USERNAME/$name:$version -t $DOCKER_USERNAME/$name --platform=linux/amd64,linux/arm64,linux/arm/v7 --push
  
 
 
