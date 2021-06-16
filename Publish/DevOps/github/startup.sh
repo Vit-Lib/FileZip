@@ -4,7 +4,7 @@ set -e
 #(x.1)当前路径 
 curWorkDir=$PWD
 
-cd $curWorkDir/../..
+cd $curWorkDir/../../..
 export codePath=$PWD
 cd $curWorkDir
 
@@ -44,7 +44,9 @@ for file in *.sh
 do
     if [[ $file != "startup.sh" ]]
     then
-        sh $file
+        echo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        echo bash $file
+        bash $file
     fi
 done
 

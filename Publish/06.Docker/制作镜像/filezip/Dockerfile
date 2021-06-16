@@ -1,4 +1,13 @@
 FROM serset/dotnet:2.1
-COPY app /root/app
-WORKDIR /root/app
-CMD dotnet FileZip.dll help
+
+
+#(x.1)install zip unzip
+RUN apt-get update && apt-get -y install zip unzip
+
+#(x.2)alias filezip
+RUN echo '#!/bin/bash\ndotnet /root/filezip/FileZip.dll $*' > /usr/bin/filezip && chmod +x /usr/bin/filezip
+
+#(x.3)app
+COPY app /root/filezip
+WORKDIR /root/filezip
+CMD dotnet /root/filezip/FileZip.dll help

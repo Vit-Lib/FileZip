@@ -36,11 +36,12 @@ namespace FileZip.Cmd
             Directory.CreateDirectory(Path.GetDirectoryName(output));
 
             float? progress = null;
-            string strProgress = ConsoleHelp.GetArg(args, "-o") ?? ConsoleHelp.GetArg(args, "--output");
+            string strProgress = ConsoleHelp.GetArg(args, "-p") ?? ConsoleHelp.GetArg(args, "--progress");
             if (strProgress == "")
             {
                 progress = 0.1f;
-            } else if (strProgress != null) 
+            }
+            else if (strProgress != null) 
             {
                 if (float.TryParse(strProgress, out var pro) && pro>0 & pro<=1) 
                 {

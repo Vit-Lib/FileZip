@@ -3,6 +3,7 @@
 > 运行环境 dotnet core 2.1
 
 ## 1. demo
+> 注： 在容器中  filezip = dotnet /root/filezip/FileZip.dll
 ``` bash
 # 查看帮助
 dotnet FileZip.dll
@@ -18,10 +19,13 @@ dotnet FileZip.dll unzip -i "E:\t\m.7z" -o "E:\t\t2"
 ``` bash
 # 查看帮助
 docker run --rm -it serset/filezip
+docker run --rm -it serset/filezip filezip help
 
 
 # 解压文件m.7z到文件夹 /root/docker/file/m
-docker run --rm -it -v /root/docker/file:/root/file serset/filezip  dotnet FileZip.dll unzip -i /root/file/m.7z -o /root/file/m
+docker run --rm -it -v /root/docker/file:/root/file serset/filezip dotnet FileZip.dll unzip -i /root/file/m.7z -o /root/file/m
+
+docker run --rm -it -v /root/docker/file:/root/file serset/filezip filezip unzip -i /root/file/m.7z -o /root/file/m
 
 ```
 

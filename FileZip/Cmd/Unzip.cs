@@ -9,7 +9,7 @@ namespace FileZip.Cmd
 
 
         #region unzip
-        
+
         [Command("unzip")]
         [Remarks("解压zip文件。若为分卷（后缀为数字 如.001）则先合并文件再解压")]
         [Remarks("支持格式: zip,gz,bzip2,tar,rar,lzip,xz,7zip,7z")]
@@ -38,13 +38,14 @@ namespace FileZip.Cmd
             Directory.CreateDirectory(output);
 
             float? progress = null;
-            string strProgress = ConsoleHelp.GetArg(args, "-o") ?? ConsoleHelp.GetArg(args, "--output");
+            string strProgress = ConsoleHelp.GetArg(args, "-p") ?? ConsoleHelp.GetArg(args, "--progress");
             if (strProgress == "")
             {
                 progress = 0.1f;
-            } else if (strProgress != null) 
+            }
+            else if (strProgress != null)
             {
-                if (float.TryParse(strProgress, out var pro) && pro>0 & pro<=1) 
+                if (float.TryParse(strProgress, out var pro) && pro > 0 & pro <= 1)
                 {
                     progress = pro;
                 }
@@ -92,11 +93,11 @@ namespace FileZip.Cmd
                     inputPath = input,
                     outputPath = output
                 };
-                
 
-                if (printFile) 
+
+                if (printFile)
                 {
-                    unpack.OnFile = (int sumCount, int curCount, string fileName) => ConsoleHelp.Log($"[{ curCount }/{sumCount} f]  " + fileName); 
+                    unpack.OnFile = (int sumCount, int curCount, string fileName) => ConsoleHelp.Log($"[{ curCount }/{sumCount} f]  " + fileName);
                 }
 
                 if (printDirectory)
@@ -128,7 +129,7 @@ namespace FileZip.Cmd
         }
         #endregion
 
- 
+
 
 
     }
