@@ -7,7 +7,7 @@ args_="
 
 export codePath=/root/temp/svn
 
-export version=`grep '<Version>' "${codePath}" -r --include Sers.Core.csproj | grep -oP '>(.*)<' | tr -d '<>'`
+export version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -oP '>(.*)<' | tr -d '<>'`
 
 export DOCKER_USERNAME=serset
 export DOCKER_PASSWORD=xxx
@@ -47,8 +47,7 @@ docker buildx ls
 #---------------------------------------------------------------------
 #(x.3)docker-构建多架构镜像（ arm、arm64 和 amd64 ）并推送到 Docker Hub
 
-#docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-
+docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 
 dockerPath=$codePath/Publish/release/release/docker-image
@@ -58,7 +57,7 @@ do
   if [ -d $dockerPath/$dockerName ]
   then 
     echo "docker build $dockerName"
-    echo docker buildx build $dockerPath/$dockerName -t $DOCKER_USERNAME/$dockerName:$version -t $DOCKER_USERNAME/$dockerName --platform=linux/amd64,linux/arm64,linux/arm/v7 --push
+    docker buildx build $dockerPath/$dockerName -t $DOCKER_USERNAME/$dockerName:$version -t $DOCKER_USERNAME/$dockerName --platform=linux/amd64,linux/arm64,linux/arm/v7 --push
   fi
 done
 

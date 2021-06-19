@@ -24,7 +24,7 @@ echo "(x.2)发布文件-压缩"
 
 docker run --rm -i \
 -v $codePath:/root/code \
-serset/filezip dotnet FileZip.dll zip -p -i /root/code/Publish/release/release -o /root/code/Publish/release/${name}-${version}.zip 
+serset/filezip filezip zip -p -i /root/code/Publish/release/release -o /root/code/Publish/release/${name}-${version}.zip 
 
 
 
