@@ -1,5 +1,7 @@
 set -e
 
+# cd /root/temp/svn/Publish/DevOps/github;bash startup.bash;
+
 #----------------------------------------------
 #(x.1)当前路径 
 curWorkDir=$PWD
@@ -9,9 +11,10 @@ export codePath=$PWD
 cd $curWorkDir
 
 
+# export codePath=/root/temp/svn
+
 export name=filezip
 export projectPath=FileZip
-
 
 #export DOCKER_USERNAME=serset
 #export DOCKER_PASSWORD=xxx
@@ -42,12 +45,9 @@ echo "(x.3)自动发布 $name-$version"
 
 for file in *.sh
 do
-    if [[ $file != "startup.sh" ]]
-    then
-        echo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        echo bash $file
-        bash $file
-    fi
+    echo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    echo bash $file
+    bash $file
 done
 
 
