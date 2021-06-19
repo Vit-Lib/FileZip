@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push tag
   push:
-    #branches: [ master ]
+    branches: [ master ]
     
     tags:
       - '*'
