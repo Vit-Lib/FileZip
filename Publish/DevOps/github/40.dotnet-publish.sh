@@ -20,6 +20,9 @@ export version=`grep '<Version>' ${codePath} -r --include *.csproj | grep -oP '>
 echo "(x.2)dotnet-publish"
 echo "dotnet version: ${netVersion}"
 
+
+mkdir -p $codePath/Publish/release/release/publish
+
 docker run -i --rm \
 --env LANG=C.UTF-8 \
 -v $codePath:/root/code \
@@ -47,14 +50,11 @@ do
 	dotnet publish --configuration Release --output \$publishPath/\$publishName
 done
 
-
-#(x.4)copy bat
-\\cp -rf /root/code/Publish/ReleaseFile/publish/. \$publishPath
-
-
 "
 
 
+#(x.4)copy bat
+\cp -rf $codePath/Publish/ReleaseFile/publish/. $codePath/Publish/release/release/publish
 
 
 echo 'publish succeed！'
