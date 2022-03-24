@@ -31,12 +31,9 @@ export name=filezip
 #----------------------------------------------
 echo "(x.2)get version" 
 export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${codePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
-# echo $version
+echo $version
 
-
-
-
-
+ 
 
 
 #----------------------------------------------

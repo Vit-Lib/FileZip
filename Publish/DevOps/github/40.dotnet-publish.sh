@@ -7,14 +7,9 @@ args_="
 
 export codePath=/root/temp/svn
 
-
-export version=`grep '<Version>' $(grep '<pack/>\|<publish>' ${codePath} -r --include *.csproj -l | head -n 1) | grep -oP '>(.*)<' | tr -d '<>'`
-
-
-
 # "
 
- 
+
 
 #----------------------------------------------
 echo "(x.2)dotnet-publish"
@@ -26,7 +21,7 @@ mkdir -p $codePath/Publish/release/release/publish
 docker run -i --rm \
 --env LANG=C.UTF-8 \
 -v $codePath:/root/code \
-serset/dotnet:6.0-sdk \
+serset/dotnet:sdk-6.0 \
 bash -c "
 set -e
 
