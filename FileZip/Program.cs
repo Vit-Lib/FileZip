@@ -12,8 +12,8 @@ namespace Main
         public static void Main(string[] args)
         {
 
-            var arg = new List<string>() { "help" };
-            args = arg.ToArray();
+            //var arg = new List<string>() { "help" };
+            //args = arg.ToArray();
 
 
             //var arg = new List<string>() { "unzip" };
