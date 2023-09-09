@@ -1,5 +1,5 @@
 # FileZip
-> FileZip为net core2.1开发的文件加解压工具，包括 文件合并、文件压缩（zip） 和 文件解压（unzip）    
+> FileZip为net 6.0 开发的文件加解压工具，包括 文件合并、文件压缩（zip） 和 文件解压（unzip）    
 > 运行环境 dotnet core 2.1
 
 ## 1. demo
