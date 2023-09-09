@@ -1,5 +1,5 @@
 # FileZip
-> FileZip为net 6.0 开发的文件加解压工具，包括 文件合并、文件压缩（zip） 和 文件解压（unzip）    
+> FileZip为 net 6.0 开发的文件加解压工具，包括 文件合并、文件(夹)复制、文件压缩（zip） 和 文件解压（unzip）    
 > 运行环境 dotnet core 2.1
 
 ## 1. demo
@@ -38,6 +38,15 @@ nohup docker run --rm -t \
 -v /srv/temp:/root/file/out \
 serset/filezip dotnet FileZip.dll unzip -i /root/file/in/file.zip -o /root/file/out/file -p 0.01 \
 > /srv/temp/unzip.log 2>&1 &
+
+
+# 复制文件夹
+nohup docker run --rm -t \
+-v /srv/dl:/root/file/in \
+-v /srv/temp:/root/file/out \
+serset/filezip dotnet FileZip.dll copy -i /data/files -o /data/files2 --file --dir --overwrite \
+> /srv/temp/copy.log 2>&1 &
+
 
 
 # 查看进程
