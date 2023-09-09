@@ -1,4 +1,4 @@
-FROM serset/dotnet:2.1
+FROM serset/dotnet:runtime-6.0
 
 
 #(x.1)install zip unzip

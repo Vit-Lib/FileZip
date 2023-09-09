@@ -27,6 +27,25 @@ docker run --rm -it -v /root/docker/file:/root/file serset/filezip dotnet FileZi
 
 docker run --rm -it -v /root/docker/file:/root/file serset/filezip filezip unzip -i /root/file/m.7z -o /root/file/m
 
+
+docker run --rm -it \
+-v /srv/dl:/root/file/in \
+-v /srv/temp/:/root/file/out \
+serset/filezip dotnet FileZip.dll unzip -i /root/file/in/file.zip -o /root/file/out/file -p 0.01 \
+
+nohup docker run --rm -t \
+-v /srv/dl:/root/file/in \
+-v /srv/temp:/root/file/out \
+serset/filezip dotnet FileZip.dll unzip -i /root/file/in/file.zip -o /root/file/out/file -p 0.01 \
+> /srv/temp/unzip.log 2>&1 &
+
+
+# 查看进程
+ps -ef | grep 'FileZip'
+
+# 杀死进程 
+kill -s 9 12311
+
 ```
 
 ## 3. 命令说明
@@ -36,6 +55,17 @@ help
 帮助文档：
 -c[--command] 要查询的命令。若不指定则返回所有命令的文档。如 help
 示例： help -c help
+---------------
+copy
+复制文件(夹)
+参数说明：
+-i[--input] 源文件(夹),例如 "/data/a.txt" "/data/files"
+-o[--output] 目标文件(夹)
+-f[--file] 若指定，则输出每一个文件信息
+-d[--dir] 若指定，则输出每一个文件夹信息
+-r[--remove] 若指定，则在copy完后删除源文件(夹)
+--overwrite 若指定，则强制覆盖已存在文件，默认:false
+示例： copy -i "/data/files" -o "/data/files2" --file --dir --overwrite
 ---------------
 marge
 合并文件。参数说明：

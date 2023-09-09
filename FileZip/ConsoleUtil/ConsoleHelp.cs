@@ -62,7 +62,7 @@ namespace Vit.ConsoleUtil
             //arg.AddRange(new[] { "-o", "T:\\temp\\un7z" });
             //args = arg.ToArray();
 
-            #region (x.1)通过反射获取所有命令            
+            #region (x.1)通过反射获取所有命令
             var cmdMap =
                 //获取所有type
                 Assembly.GetEntryAssembly().GetTypes()
@@ -78,7 +78,7 @@ namespace Vit.ConsoleUtil
             #endregion
 
 
-            #region (x.2)若未指定命令名称，则输出帮助文档            
+            #region (x.2)若未指定命令名称，则输出帮助文档
             if (args == null || args.Length == 0 || string.IsNullOrEmpty(args[0]))
             {
                 #region 输出命令帮助文档
@@ -98,18 +98,18 @@ namespace Vit.ConsoleUtil
             #endregion
 
 
-            #region (x.3)通过第一个参数查找命令并调用            
+            #region (x.3)通过第一个参数查找命令并调用
             try
             {
                 cmdMap.TryGetValue(args[0], out var method);
 
                 if (method == null)
                 {
-                    ConsoleHelp.Log($"出错：命令 { args[0] } 不存在！");
+                    ConsoleHelp.Log($"出错：命令 {args[0]} 不存在！");
                     return;
                 }
-                ConsoleHelp.Log("------------------------------");        
-                ConsoleHelp.Log($"开始执行命令 { args[0] } ...");
+                ConsoleHelp.Log("------------------------------");
+                ConsoleHelp.Log($"开始执行命令 {args[0]} ...");
                 ConsoleHelp.Log("---------------");
 
                 method.Invoke(null, new object[] { args });

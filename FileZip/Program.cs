@@ -12,8 +12,8 @@ namespace Main
         public static void Main(string[] args)
         {
 
-            //var arg = new List<string>() { "help" };
-            //args = arg.ToArray();
+            var arg = new List<string>() { "help" };
+            args = arg.ToArray();
 
 
             //var arg = new List<string>() { "unzip" };
@@ -24,6 +24,13 @@ namespace Main
             //var arg = new List<string>() { "zip" };
             //arg.AddRange(new[] { "-i", "T:\\temp\\tileset" });
             ////arg.AddRange(new[] { "-o", "T:\\temp\\tileset.zip" });
+            //args = arg.ToArray();
+
+
+            // copy -i \"/data/files\" -o \"/data/files2\" --file --dir
+            //var arg = new List<string>() { "copy", "--file", "--dir" };
+            //arg.AddRange(new[] { "-i", "L:\\file" });
+            //arg.AddRange(new[] { "-o", "T:\\file" });
             //args = arg.ToArray();
 
             Vit.ConsoleUtil.ConsoleHelp.Log("[FileZip] version: " + System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location).FileVersion);

@@ -14,7 +14,7 @@ namespace FileZip.Cmd
         [Remarks("支持格式: .zip, .gz, .tar")]
         [Remarks("参数说明：")]
         [Remarks("-i[--input] 待压缩文件(夹),例如 \"/data/a.txt\" \"/data/files\"")]
-        [Remarks("-o[--output] 压缩输出文件m，使用后缀指定格式压缩，(若不指定,输出到待压缩文件所在目录)")]
+        [Remarks("-o[--output] 压缩输出文件，使用后缀指定格式压缩，(若不指定,输出到待压缩文件所在目录)")]
         [Remarks("-p[--progress] 进度信息间隔。如0.1代表进度每增加10%，提示一次。默认0.1")]
         [Remarks("-f[--file] 若指定，则输出每一个文件信息")]
         [Remarks("示例： zip -i \"/data/files\" -o \"/data/files.zip\" -p 0.1 -f")]
